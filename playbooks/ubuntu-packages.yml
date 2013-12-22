@@ -1,0 +1,16 @@
+---
+- hosts: all
+  user: root
+  tasks:
+  - name: install multiple packages
+    action: apt name=$item state=installed
+    with_items:
+    - vim 
+    - netcat 
+    - ngrep
+    - tcpdump 
+    - emacs 
+    - zsh 
+    - tmux
+    - python-pycurl
+    when: ansible_lsb.id == "Ubuntu"
